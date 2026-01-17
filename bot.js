@@ -5,20 +5,20 @@ const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
-  ],
+    GatewayIntentBits.MessageContent
+  ]
 });
 
 client.once("ready", () => {
-  console.log(`✅ Bot ist online als ${client.user.tag}`);
+  console.log(`✅ Bot online als ${client.user.tag}`);
 });
 
 client.on("messageCreate", (message) => {
   if (message.author.bot) return;
 
-  if (message.content.toLowerCase().includes("piskopat")) {
+  if (message.content.toLowerCase() === "psikopat") {
     message.channel.send("🔥🔥🔥");
   }
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN); 
